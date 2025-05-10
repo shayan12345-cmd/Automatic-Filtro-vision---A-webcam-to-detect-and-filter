@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Webcam Face Detection & Filters</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- face-api.js CDN -->
+    <script defer src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@2.7.0/dist/tf.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/face-api.js@0.22.2/dist/face-api.min.js"></script>
+    <script defer src="filterHistory.js"></script>
+    <script defer src="gallery.js"></script>
+    <script defer src="script.js"></script>
+</head>
+<body>
+    <h1>Webcam Face Detection & Filters</h1>
+    <div class="main-content">
+        <div class="left-section">
+            <div class="filter-history">
+                <h2 class="history-header">Filter History</h2>
+                <ul class="filter-list" id="filterList"></ul>
+            </div>
+            <div class="gallery-section">
+                <h2 class="gallery-header">Saved Images</h2>
+                <div class="gallery-grid" id="galleryGrid"></div>
+            </div>
+        </div>
+        <div class="right-section">
+            <div class="container">
+                <video id="video" autoplay muted></video>
+                <canvas id="canvas"></canvas>
+            </div>
+            <div class="controls">
+                <button class="start-btn" id="startBtn">Start Camera</button>
+                <div class="filter-controls">
+                    <div class="upload-section">
+                        <input type="file" id="imageUpload" accept="image/*" style="display: none;">
+                        <button id="uploadBtn" class="upload-btn">Upload Image</button>
+                    </div>
+                    <select id="filterSelect">
+                        <option value="none">No Filter</option>
+                        <option value="grayscale">Grayscale</option>
+                        <option value="blur">Blur</option>
+                        <option value="invert">Invert</option>
+                        <option value="sepia">Sepia</option>
+                        <option value="pixelate">Pixelate</option>
+                        <option value="mirror">Mirror</option>
+                        <option value="red">Red Tint</option>
+                        <option value="blue">Blue Tint</option>
+                        <option value="green">Green Tint</option>
+                        <option value="vintage">Vintage</option>
+                        <option value="neon">Neon Glow</option>
+                        <option value="solarize">Solarize</option>
+                        <option value="posterize">Posterize</option>
+                        <option value="emboss">Emboss</option>
+                    </select>
+                    <button id="captureBtn">Capture</button>
+                    <button id="saveBtn" style="display: none;">Save Image</button>
+                    <button id="downloadBtn" style="display: none;">Download</button>
+                </div>
+            </div>
+            <div class="captured-image" id="capturedImage">
+                <img id="capturedImg" src="" alt="Captured image">
+            </div>
+        </div>
+    </div>
+</body>
+</html> 
